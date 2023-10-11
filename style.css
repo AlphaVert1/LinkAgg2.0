@@ -373,7 +373,6 @@ input:checked + .slider:before {
 
 body{
   overflow: scroll;
-  background-image: url(https://img.freepik.com/premium-vector/hand-drawn-cryptocurrency-mining-set-doodle-background_140689-82.jpg)
 }
 
 /* Light mode background image */
@@ -383,7 +382,7 @@ body{
 
 /* Dark mode background image */
 .dark-mode {
-  background-image: url(https://example.com/dark-mode-image.jpg);
+  background-color: black;
 }
 
 td,
