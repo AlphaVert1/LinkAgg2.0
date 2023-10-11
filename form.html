@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Problem</title>
+</head>
+<body>
+    <h1>Report Problem</h1>
+    
+    <!-- Display the header from the URL as a title -->
+    <h2 id="header-title"></h2>
+
+    <form id="report-form">
+        <!-- Header input field (hidden) -->
+        <input type="hidden" id="header" name="header">
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required><br><br>
+
+        <label for="description">Description of Problem:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // Function to parse the query parameter from the URL
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Get the header from the URL
+        var headerFromURL = getQueryParam("header");
+
+        // Display the header in the title
+        document.getElementById("header-title").textContent = headerFromURL;
+
+        // Set the header value in the hidden input field
+        document.getElementById("header").value = headerFromURL;
+
+        // Hide the "i" text in the button
+        var infoButton = document.querySelector(".info-button-text");
+        infoButton.style.display = "none";
+
+        // Handle form submission
+        document.getElementById("report-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get values from the form fields
+            var subject = document.getElementById("subject").value;
+            var description = document.getElementById("description").value;
+            var header = document.getElementById("header").value;
+
+            // You can now use 'header', 'subject', and 'description' as needed
+
+            // Close the popup window
+            window.close();
+        });
+    </script>
+
+<script src="GoogleSheetAPI.js"></script>
+
+</body>
+</html>

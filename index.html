@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+
+        <div id="wallet-selector">
+            <!-- Wallet buttons will be added here -->
+            <button class="custom-btn" id="connect-wallet-button"><span>Connect Wallet</span></button>
+        </div>
+
+            <div class="switch">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+            </div>
+
+        </label>
+    </div>
+      <h3 class="animate-charcter" id="header1">Link Aggregator</h3>
+    </div>
+  </div>
+</div>     
+      <p><strong>Search for Sites, Blockchains or Categories:</strong>
+      <input id="search" type="text" placeholder="Search here">
+      </p>
+      <br>
+      <div class="warning">
+      <marquee behavior="scroll" direction="left"><h6 id="warning"> **This is not financial or legal advice, use these links as your own discretion.&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      Safety is relative for every site and does not guarantee a site has no ill-intent.**</h6></marquee>
+      </div>
+      <br>
+      <table id="tab">
+        <thead>
+          <tr>
+              <th onclick="sortTable(0)">Favorite</th>
+              <th onclick="sortTable(1)">Site Title</th>
+              <th onclick="sortTable(2)">Blockchain</th>
+              <th onclick="sortTable(3)">Category</th>
+              <th onclick="sortTable(4)">Safety</th>
+              <th><button id="request-add-site">+</button></th>
+
+    
+          </tr>
+                  <!-- The hidden popup dialog -->
+    <div id="popup" style="display: none;">
+        <h2>Add a Site</h2>
+        <form id="site-form" method="post" action="Request.html">
+            <label for="site-name"><strong>Site Name:</strong></label>
+            <input type="text" id="site-name" required><br><br>
+            
+            <label for="site-url"><strong>URL:</strong></label>
+            <input type="url" id="site-url" required><br><br>
+            
+            <label for="blockchains"><strong>Blockchains:</strong></label><br>
+            <input type="checkbox" id="Bitcoin" name="Bitcoin" value="Bitcoin"><label for="Bitcoin">Bitcoin</label>
+            <input type="checkbox" id="Ethereum" name="Ethereum" value="Ethereum"><label for="Ethereum">Ethereum</label>
+            <input type="checkbox" id="BNB" name="BNB" value="BNB"><label for="BNB">BNB</label>
+            <input type="checkbox" id="Solana" name="Solana" value="Solana"><label for="Solana">Solana</label><br>
+            <input type="checkbox" id="Polygon" name="Polygon" value="Polygon"><label for="Polygon">Polygon</label>
+            <input type="checkbox" id="Cosmos" name="Cosmos" value="Cosmos"><label for="Cosmos">Cosmos</label>
+            <input type="checkbox" id="Avalanche" name="Avalanche" value="Avalanche"><label for="Avalanche">Avalanche</label>
+            <input type="checkbox" id="Aptos" name="Aptos" value="Aptos"><label for="Aptos">Aptos</label>
+            <input type="checkbox" id="Sui" name="Sui" value="Sui"><label for="Sui">Sui</label>
+
+
+            <br><br>
+            
+            <label for="category"><strong>Category:</strong></label>
+            <select id="category">
+                <option value="Example1">Example1</option>
+                <option value="Example2">Example2</option>
+            </select>
+            
+            <label for="custom-category"><strong>or Custom Category:</strong></label>
+            <input type="text" id="custom-category" pattern="[A-Za-z]+" style="text-transform: capitalize;"><br><br>
+            
+            <button type="submit">Add Site</button>
+        </form>
+    </div>
+    <script src="RequestAddSite.js"></script>
+
+
+
+        </thead>
+            <tbody>
+                <!-- Start of table list -->
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox1"><label for="checkbox1" class="star-checkbox"></label></td>
+    <td class="Title"><a href="https://cryptofees.info/" target="_blank">Crypto Fees</a><button class="info"><span class="info-button-text">i</span></button></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon</td>
+    <td>Analytics - Gas/Fees</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+                
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox2"><label for="checkbox2" class="star-checkbox"></label></td>
+    <td class="Title"><a href="https://blocknative.com/gas-estimator" target="_blank">Blocknative</a><button class="info"><span class="info-button-text">i</span></button></td>
+    <td>Ethereum, Polygon</td>
+    <td>Analytics - Gas/Fees</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox3"><label for="checkbox3" class="star-checkbox"></label></td>
+    <td class="Title"><a href="https://spire.fyi" target="_blank">Spire</a></td>
+    <td>Solana</td>
+    <td>Analytics - Gas/Fees</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox4"><label for="checkbox4" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://solfees.fyi/" target="_blank">Solfees</a></td>
+    <td>Solana</td>
+    <td>Analytics - Gas/Fees</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox5"><label for="checkbox5" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://flipsidecrypto.xyz/" target="_blank">Flipsidecrypto</a></td>
+    <td>Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche</td>
+    <td>Analytics - General</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox6"><label for="checkbox6" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://dune.com/browse/dashboards" target="_blank">Dune</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Aptos, Sui</td>
+    <td>Analytics - General</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox7"><label for="checkbox7" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://analytics.step.finance" target="_blank">Step Finance - Analytics</a></td>
+    <td>Solana</td>
+    <td>Analytics - General</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox8"><label for="checkbox8" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.artemis.xyz/dashboard" target="_blank">Artemis</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Aptos, Sui</td>
+    <td>Analytics - General</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox9"><label for="checkbox9" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://chainbroker.io" target="_blank">Chainbroker</a></td>
+    <td>Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Sui</td>
+    <td>Analytics - General</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox10"><label for="checkbox10" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://fiatleak.com" target="_blank">Fiatleak</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche</td>
+    <td>Analytics - General</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox11"><label for="checkbox11" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://explorer.jito.wtf" target="_blank">Jito</a></td>
+    <td>Solana</td>
+    <td>Analytics - General</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox12"><label for="checkbox12" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://de.fi/scanner" target="_blank">De.fi</a></td>
+    <td>Ethereum, BNB, Polygon, Avalanche</td>
+    <td>Analytics - General</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox13"><label for="checkbox13" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://defillama.com" target="_blank">DeFi Llama</a></td>
+    <td>Ethereum, BNB, Solana, Polygon</td>
+    <td>Analytics - General</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox14"><label for="checkbox14" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.rwa.xyz/" target="_blank">Rwa</a></td>
+    <td>Ethereum, Solana, Cosmos</td>
+    <td>Analytics - Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox15"><label for="checkbox15" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://linen.app/interest-rates/" target="_blank">Linen</a></td>
+    <td>Ethereum</td>
+    <td>Analytics - Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox16"><label for="checkbox16" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://loans.monkeybaby.business/" target="_blank">Monkey Baby Business - Underwater Loans</a></td>
+    <td>Solana</td>
+    <td>Analytics - Loans</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox17"><label for="checkbox17" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.suipa.xyz/home" target="_blank">Suipa</a></td>
+    <td>Solana</td>
+    <td>Analytics - Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox18"><label for="checkbox18" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://sharky.fi/beta/orderbooks" target="_blank">SharkyFi</a></td>
+    <td>Solana</td>
+    <td>Analytics - Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox19"><label for="checkbox19" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.wolfcap.io/" target="_blank">Wolfcap</a></td>
+    <td>Solana</td>
+    <td>Analytics - Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox20"><label for="checkbox20" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://tiexo.com/stats" target="_blank">Tiexo</a></td>
+    <td>Solana, Aptos</td>
+    <td>Analytics - NFTs</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox21"><label for="checkbox21" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://solanafloor.com/" target="_blank">SolanaFloor</a></td>
+    <td>Solana</td>
+    <td>Analytics - NFTs</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox22"><label for="checkbox22" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://analysoor.com/" target="_blank">Analysoor</a></td>
+    <td>Solana</td>
+    <td>Analytics - NFTs</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox23"><label for="checkbox23" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.suipa.xyz/" target="_blank">Suipa</a></td>
+    <td>Solana</td>
+    <td>Analytics - NFTs</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox24"><label for="checkbox24" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://cogentcrypto.io/Validators#apy_estimate_desc" target="_blank">CogentCrypto</a></td>
+    <td>Solana</td>
+    <td>Analytics - Staking</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox25"><label for="checkbox25" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://nodewatch.io" target="_blank">NodeWatch</a></td>
+    <td>Ethereum</td>
+    <td>Analytics - Validators/Nodes</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox26"><label for="checkbox26" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://marinade.finance/validators/" target="_blank">Marinade Finance</a></td>
+    <td>Solana</td>
+    <td>Analytics - Validators/Nodes</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox27"><label for="checkbox27" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://beaconscan.com/validators" target="_blank">Beaconscan</a></td>
+    <td>Ethereum</td>
+    <td>Analytics - Validators/Nodes</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox28"><label for="checkbox28" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://beaconcha.in/validators" target="_blank">Beaconchain</a></td>
+    <td>Ethereum</td>
+    <td>Analytics - Validators/Nodes</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox29"><label for="checkbox29" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.multichain.org/" target="_blank">Multichain</a></td>
+    <td>Bitcoin, Ethereum, BNB, Polygon, Avalanche</td>
+    <td>Blockchain Bridge</td>
+    <td class="safety-Bad">Bad</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox30"><label for="checkbox30" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://portalbridge.com/#/transfer" target="_blank">Portal Bridge</a></td>
+    <td>Ethereum, BNB, Solana, Polygon, Avalanche, Aptos, Sui</td>
+    <td>Blockchain Bridge</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox31"><label for="checkbox31" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://bybit.com/" target="_blank">Bybit</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Aptos, Sui</td>
+    <td>CEX - KYC</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox32"><label for="checkbox32" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://swap.bingx.com/" target="_blank">Bingx</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Aptos, Sui</td>
+    <td>CEX - No KYC</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox33"><label for="checkbox33" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://m.mexc.com/trade/spot" target="_blank">Mexc - Spot</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Aptos, Sui</td>
+    <td>CEX - No KYC</td>
+    <td class="safety-Bad">Bad</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox34"><label for="checkbox34" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://bybit.com/derivatives/" target="_blank">Bybit - derivs</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Aptos, Sui</td>
+    <td>Derivatives - KYC</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox35"><label for="checkbox35" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://m.bingx.com/" target="_blank">Bingx</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Aptos, Sui</td>
+    <td>Derivatives - No KYC</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox36"><label for="checkbox36" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://m.mexc.com/contract/main/trade" target="_blank">Mexc</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Aptos, Sui</td>
+    <td>Derivatives - No KYC</td>
+    <td class="safety-Bad">Bad</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox37"><label for="checkbox37" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.drift.trade/" target="_blank">Drift</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Aptos, Sui</td>
+    <td>Derivatives - No KYC</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox38"><label for="checkbox38" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://dex.zeta.markets/" target="_blank">Zeta Markets</a></td>
+    <td>Bitcoin, Ethereum, Solana, Aptos</td>
+    <td>Derivatives - No KYC</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox39"><label for="checkbox39" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://bisq.network" target="_blank">Bisq Network</a></td>
+    <td>Bitcoin</td>
+    <td>DEX</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox40"><label for="checkbox40" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.1inch.io/" target="_blank">1inch</a></td>
+    <td>Ethereum, BNB, Polygon</td>
+    <td>DEX</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox41"><label for="checkbox41" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.dodoex.io/" target="_blank">Dodo dex</a></td>
+    <td>Ethereum, BNB, Polygon</td>
+    <td>DEX</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox42"><label for="checkbox42" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://sushi.com/swap" target="_blank">Sushiswap</a></td>
+    <td>Ethereum, BNB, Polygon</td>
+    <td>DEX</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox43"><label for="checkbox43" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://jup.ag/" target="_blank">Jupiter</a></td>
+    <td>Solana</td>
+    <td>DEX</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox44"><label for="checkbox44" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://birdeye.so/" target="_blank">Birdeye</a></td>
+    <td>Ethereum, BNB, Solana, Polygon, Avalanche</td>
+    <td>DEX</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox45"><label for="checkbox45" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://orca.so/" target="_blank">Orca</a></td>
+    <td>Solana</td>
+    <td>DEX</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox46"><label for="checkbox46" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://raydium.io/swap/" target="_blank">Raydium</a></td>
+    <td>Solana</td>
+    <td>DEX</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox47"><label for="checkbox47" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.osmosis.zone/" target="_blank">Osmosis Zone</a></td>
+    <td>Cosmos</td>
+    <td>DEX</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox48"><label for="checkbox48" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://pancakeswap.finance/" target="_blank">PancakeSwap</a></td>
+    <td>BNB</td>
+    <td>DEX</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox49"><label for="checkbox49" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://curve.fi/" target="_blank">CruveFi</a></td>
+    <td>Ethereum, Polygon</td>
+    <td>DEX</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox50"><label for="checkbox50" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://balancer.finance/" target="_blank">Balancer</a></td>
+    <td>Ethereum, Polygon</td>
+    <td>DEX</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox51"><label for="checkbox51" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://airswap.io/" target="_blank">Airswap</a></td>
+    <td>Ethereum, BNB</td>
+    <td>DEX</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox52"><label for="checkbox52" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://kyberswap.com/swap/" target="_blank">Kyberswap</a></td>
+    <td>Ethereum, BNB, Polygon</td>
+    <td>DEX</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox53"><label for="checkbox53" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://fluxbeam.xyz/app/swap" target="_blank">Fluxbeam</a></td>
+    <td>Solana</td>
+    <td>DEX</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox54"><label for="checkbox54" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://simpleswap.io/" target="_blank">Simpleswap</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Aptos, Sui</td>
+    <td>DEX</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox55"><label for="checkbox55" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://lifinity.io/swap/" target="_blank">LiFinity</a></td>
+    <td>Solana</td>
+    <td>DEX</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox56"><label for="checkbox56" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://etherscan.io/" target="_blank">Etherscam</a></td>
+    <td>Ethereum</td>
+    <td>Explorer</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox57"><label for="checkbox57" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://blockchair.com/" target="_blank">Blockchair</a></td>
+    <td>Bitcoin, Ethereum</td>
+    <td>Explorer</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox58"><label for="checkbox58" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://solscan.io/" target="_blank">Solscan</a></td>
+    <td>Solana</td>
+    <td>Explorer</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox59"><label for="checkbox59" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://solana.fm/?cluster=mainnet-qn1" target="_blank">Solana FM</a></td>
+    <td>Solana</td>
+    <td>Explorer</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox60"><label for="checkbox60" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://xray.helius.xyz/" target="_blank">Helius</a></td>
+    <td>Solana</td>
+    <td>Explorer</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox61"><label for="checkbox61" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://hub.mintscan.io/chains/overview" target="_blank">Mintscan</a></td>
+    <td>Cosmos</td>
+    <td>Explorer</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox62"><label for="checkbox62" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://snowtrace.io/" target="_blank">Snowtrace</a></td>
+    <td>Avalanche</td>
+    <td>Explorer</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox63"><label for="checkbox63" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://bscscan.com/" target="_blank">BSCscan</a></td>
+    <td>BNB</td>
+    <td>Explorer</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox64"><label for="checkbox64" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://mempool.space/" target="_blank">Mempool</a></td>
+    <td>Bitcoin</td>
+    <td>Explorer</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox65"><label for="checkbox65" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://polygonscan.com/" target="_blank">Polygonscan</a></td>
+    <td>Polygon</td>
+    <td>Explorer</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox66"><label for="checkbox66" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://bigdipper.live/" target="_blank">Bigdipper</a></td>
+    <td>Cosmos</td>
+    <td>Explorer</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox67"><label for="checkbox67" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://ping.pub/" target="_blank">Ping Pub</a></td>
+    <td>Cosmos</td>
+    <td>Explorer</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox68"><label for="checkbox68" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://aptoscan.com/" target="_blank">Aptoscan</a></td>
+    <td>Aptos</td>
+    <td>Explorer</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox69"><label for="checkbox69" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://apscan.io/" target="_blank">Apscan</a></td>
+    <td>Aptos</td>
+    <td>Explorer</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox70"><label for="checkbox70" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://explorer.sui.io/" target="_blank">Sui Explorer</a></td>
+    <td>Sui</td>
+    <td>Explorer</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox71"><label for="checkbox71" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://ethplorer.io/" target="_blank">Ethplorer</a></td>
+    <td>Ethereum</td>
+    <td>Explorer</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox72"><label for="checkbox72" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://orca.so/liquidity/browse" target="_blank">Orca - pools</a></td>
+    <td>Ethereum, Solana</td>
+    <td>Liquidity Pools</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox73"><label for="checkbox73" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.kamino.finance/" target="_blank">Kamino Finance</a></td>
+    <td>Ethereum, Solana</td>
+    <td>Liquidity Pools</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox74"><label for="checkbox74" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://raydium.io/pools/" target="_blank">Raydium - Pools</a></td>
+    <td>Solana</td>
+    <td>Liquidity Pools</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox75"><label for="checkbox75" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.aura.finance" target="_blank">Aura Finance</a></td>
+    <td>Ethereum</td>
+    <td>Liquidity Pools</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox76"><label for="checkbox76" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.beefy.finance" target="_blank">Beefy Finance</a></td>
+    <td>Ethereum, BNB, Polygon, Avalanche</td>
+    <td>Liquidity Pools</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox77"><label for="checkbox77" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://convexfinance.com" target="_blank">Convex Finance</a></td>
+    <td>Ethereum, Polygon</td>
+    <td>Liquidity Pools</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox78"><label for="checkbox78" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.harvest.finance" target="_blank">Harvest Finance</a></td>
+    <td>Ethereum, Polygon</td>
+    <td>Liquidity Pools</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox79"><label for="checkbox79" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://kyberswap.com/pools/" target="_blank">Kyberswap - pools</a></td>
+    <td>Ethereum, BNB, Polygon</td>
+    <td>Liquidity Pools</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox80"><label for="checkbox80" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://solend.fi/pools" target="_blank">Solend - pools</a></td>
+    <td>Solana</td>
+    <td>Liquidity Pools</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox81"><label for="checkbox81" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://borrow.lenderlabs.xyz/" target="_blank">LenderLabs</a></td>
+    <td>Solana</td>
+    <td>Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox82"><label for="checkbox82" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://citrus.famousfoxes.com" target="_blank">Citrus</a></td>
+    <td>Solana</td>
+    <td>Loans</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox83"><label for="checkbox83" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://pawnfi.com/" target="_blank">PawnFi</a></td>
+    <td>Ethereum, Polygon</td>
+    <td>Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox84"><label for="checkbox84" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.pwn.xyz/#/" target="_blank">PWN</a></td>
+    <td>Ethereum, Polygon</td>
+    <td>Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox85"><label for="checkbox85" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://lending.alphaquark.io/" target="_blank">AlphaQuark</a></td>
+    <td>BNB</td>
+    <td>Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox86"><label for="checkbox86" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.frakt.xyz/" target="_blank">Frakt</a></td>
+    <td>Solana</td>
+    <td>Loans</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox87"><label for="checkbox87" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://sharky.fi/" target="_blank">SharkyFi</a></td>
+    <td>Solana</td>
+    <td>Loans</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox88"><label for="checkbox88" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://mds.hadeswap.com/" target="_blank">Hadeswap Midas</a></td>
+    <td>Solana</td>
+    <td>Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox89"><label for="checkbox89" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://rain.fi/" target="_blank">RainFi</a></td>
+    <td>Solana</td>
+    <td>Loans</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox90"><label for="checkbox90" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.arcade.xyz/" target="_blank">Arcade</a></td>
+    <td>Ethereum</td>
+    <td>Loans</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox91"><label for="checkbox91" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://texture.finance/borrow" target="_blank">Texture</a></td>
+    <td>Solana</td>
+    <td>Loans</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox92"><label for="checkbox92" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://magiceden.io/" target="_blank">Magic Eden</a></td>
+    <td>Bitcoin, Ethereum, Solana, Polygon</td>
+    <td>Marketplace</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox93"><label for="checkbox93" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://opensea.io/" target="_blank">Opensea</a></td>
+    <td>Ethereum, BNB, Solana, Polygon, Avalanche</td>
+    <td>Marketplace</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox94"><label for="checkbox94" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://hyperspace.xyz/" target="_blank">Hyperspace</a></td>
+    <td>Solana, Avalanche, Sui</td>
+    <td>Marketplace</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox95"><label for="checkbox95" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://exchange.art/" target="_blank">Exchange.art</a></td>
+    <td>Solana</td>
+    <td>Marketplace</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox96"><label for="checkbox96" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://unisat.io/market" target="_blank">Unisat</a></td>
+    <td>Bitcoin</td>
+    <td>Marketplace</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox97"><label for="checkbox97" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://ordswap.io" target="_blank">Ordswap</a></td>
+    <td>Bitcoin</td>
+    <td>Marketplace</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox98"><label for="checkbox98" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://tensor.trade/" target="_blank">Tensor</a></td>
+    <td>Solana</td>
+    <td>Marketplace - AMM</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox99"><label for="checkbox99" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.elixirnft.io/" target="_blank">Elixir</a></td>
+    <td>Solana</td>
+    <td>Marketplace - AMM</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox100"><label for="checkbox100" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://beta.hadeswap.com/" target="_blank">Hadeswap</a></td>
+    <td>Solana</td>
+    <td>Marketplace - AMM</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox101"><label for="checkbox101" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://blur.io/" target="_blank">Blur</a></td>
+    <td>Ethereum</td>
+    <td>Marketplace - AMM</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox102"><label for="checkbox102" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://famousfoxes.com/swap" target="_blank">FamousFoxes</a></td>
+    <td>Solana</td>
+    <td>NFT Trading</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox103"><label for="checkbox103" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://www.tensor.trade/swapsorian" target="_blank">Tensor - Trade</a></td>
+    <td>Solana</td>
+    <td>NFT Trading</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox104"><label for="checkbox104" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://xverse.app/" target="_blank">Xverse</a></td>
+    <td>Bitcoin</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox105"><label for="checkbox105" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://phantom.app/" target="_blank">Phantom</a></td>
+    <td>Ethereum, Solana, Polygon</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox106"><label for="checkbox106" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://solflare.com" target="_blank">Solflare</a></td>
+    <td>Solana</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox107"><label for="checkbox107" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://backpack.app" target="_blank">Backpack</a></td>
+    <td>Solana</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox108"><label for="checkbox108" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://trustwallet.com" target="_blank">Trust</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Cosmos, Avalanche, Aptos</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox109"><label for="checkbox109" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://tokenpocket.pro" target="_blank">Token Pocket</a></td>
+    <td>Bitcoin, Ethereum, BNB, Polygon</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox110"><label for="checkbox110" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://metamask.io/" target="_blank">Metamask</a></td>
+    <td>Ethereum, Polygon</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox111"><label for="checkbox111" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://glow.app/" target="_blank">Glow</a></td>
+    <td>Solana</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox112"><label for="checkbox112" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://elliwallet.com/" target="_blank">Ellipse</a></td>
+    <td>Sui</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox113"><label for="checkbox113" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://risewallet.io/" target="_blank">Rise</a></td>
+    <td>Aptos</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox114"><label for="checkbox114" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://docs.solana.com/wallet-guide/paper-wallet" target="_blank">Solana Wallet</a></td>
+    <td>Solana</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox115"><label for="checkbox115" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://ottr.finance/" target="_blank">Otter Finance</a></td>
+    <td>Solana</td>
+    <td>Non-Custodial Wallet</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox116"><label for="checkbox116" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://cogentcrypto.io" target="_blank">Cogent Crypto</a></td>
+    <td>Solana</td>
+    <td>Staking/Mining</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox117"><label for="checkbox117" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://marinade.finance/app/staking/" target="_blank">Marinade Finance - Staking</a></td>
+    <td>Solana</td>
+    <td>Staking/Mining</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox118"><label for="checkbox118" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.stakewise.io" target="_blank">Stakewise</a></td>
+    <td>Ethereum</td>
+    <td>Staking/Mining</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox119"><label for="checkbox119" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://lockers.stakedao.org" target="_blank">StakeDAO</a></td>
+    <td>Ethereum</td>
+    <td>Staking/Mining</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox120"><label for="checkbox120" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.xbanking.org" target="_blank">XBanking</a></td>
+    <td>Ethereum, BNB, Polygon, Cosmos, Avalanche, Aptos</td>
+    <td>Staking/Mining</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox121"><label for="checkbox121" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://delio.global/m/staking" target="_blank">Delio Global</a></td>
+    <td>Solana</td>
+    <td>Staking/Mining</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox121"><label for="checkbox121" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://solanacompass.com/staking/turbo-staking" target="_blank">SolanaCompass</a></td>
+    <td>Solana</td>
+    <td>Staking/Mining</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox122"><label for="checkbox122" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://superstakesol.com/" target="_blank">SuperStake</a></td>
+    <td>Solana</td>
+    <td>Staking/Mining</td>
+    <td class="safety-Caution">Caution</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox123"><label for="checkbox123" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://portfolio.nansen.ai" target="_blank">Nansen</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Avalanche, Aptos</td>
+    <td>Wallet Tracker</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox124"><label for="checkbox124" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://zapper.xyz/" target="_blank">Zapper</a></td>
+    <td>Ethereum, BNB, Polygon, Avalanche</td>
+    <td>Wallet Tracker</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox125"><label for="checkbox125" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://app.step.finance/en/dashboard" target="_blank">Step Finance</a></td>
+    <td>Solana</td>
+    <td>Wallet Tracker</td>
+    <td class="safety-Good">Good</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox126"><label for="checkbox126" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://trovecrypto.io/" target="_blank">Trove</a></td>
+    <td>Solana</td>
+    <td>Wallet Tracker</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox127"><label for="checkbox127" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://assetdash.com/" target="_blank">Assetdash</a></td>
+    <td>Bitcoin, Ethereum, BNB, Solana, Polygon, Avalanche</td>
+    <td>Wallet Tracker</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox128"><label for="checkbox128" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://sonar.watch" target="_blank">Sonar</a></td>
+    <td>Solana, Aptos</td>
+    <td>Wallet Tracker</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox129"><label for="checkbox129" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://debank.com" target="_blank">DeBank</a></td>
+    <td>Ethereum, BNB, Polygon</td>
+    <td>Wallet Tracker</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+
+<tr>
+    <td><input type="checkbox" class="favorite-checkbox" id="checkbox130"><label for="checkbox130" class="star-checkbox"></label></td>    
+    <td class="Title"><a href="https://floornfts.io/" target="_blank">Floor</a></td>
+    <td>Solana</td>
+    <td>Wallet Tracker</td>
+    <td class="safety-Untested">Untested</td>
+    <td class="report-back"><button class="report-button">Report</button></td>
+</tr>
+          </tbody>
+      </table>
+<div class="pagination">
+  <button id="prev-page">Previous</button>
+  <span id="page-info">Page 1 of 1</span>
+  <button id="next-page">Next</button>
+</div>
+
+
+
+
+    </div>
+    <script type="module" src="script.js"></script>
+    <script src="Search&Sort.js"></script>
+    <script src="Report-Button.js"></script>
+    <script src="Dark-Mode.js"></script>
+    <script src="pagination.js"></script>
+    <script src="Favorite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/wallet-adapter@2.5.0/dist/bundle.js"></script>
+    <script src="your-custom-script.js"></script>
+
+  </body>
+</html>
